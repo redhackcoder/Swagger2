@@ -1,0 +1,199 @@
+ {
+    "swagger": "2.0",
+    "info": {
+    "description": "This is a shipment API",
+    "version": "1.0.0",
+    "title": "Shipment API",
+    "contact": {
+    "email": "maninder.singh@worldfashionexchange.com"
+    },
+    "license": {
+    "name": "Apache 2.0",
+    "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+    },
+    "host": "localhost:3000",
+    "tags": [
+    {
+    "name": "Clients",
+    "description": "Secured Client Calls"
+    }
+    ],
+    "schemes": [
+    "http"
+    ],
+    "paths": {
+    "/getShipmentDetails": {
+    "get": {
+    "tags": [
+    "Clients"
+    ],
+    "summary": "searches for Shipment Reference Number",
+    "description": "Searching a specific shipment\n",
+    "operationId": "GetShipmentRefDetails",
+    "produces": [
+    "application/json"
+    ],
+    "parameters": [
+    {
+    "name": "shipmentRef",
+    "in": "query",
+    "description": "pass an optional shipment Reference for searching",
+    "required": false,
+    "type": "string"
+    }
+    ],
+    "responses": {
+    "200": {
+    "description": "search results matching criteria",
+    "schema": {
+    "type": "object"
+    }
+    },
+    "400": {
+    "description": "bad input parameter"
+    }
+    }
+    }
+    }
+    },
+    "definitions": {
+    "ShipmentModel": {
+    "type": "object",
+    "required": [
+    "ETA",
+    "ETD",
+    "MBL/MAWB",
+    "ShippedQty",
+    "TotalValue",
+    "arrivedOn",
+    "chargeableVolume",
+    "chargeableWeight",
+    "comments",
+    "createdByCompany",
+    "createdByUser",
+    "documentSentOn",
+    "forwarder",
+    "fromPort",
+    "invoice",
+    "lastUpdatedByUser",
+    "loadType",
+    "plannedETD",
+    "receiptedOn",
+    "shipTo",
+    "shipmentMode",
+    "shipmentRef",
+    "shipmentStatus",
+    "toPort",
+    "vessel/flightName",
+    "voyage/flight"
+    ],
+    "properties": {
+    "shipmentRef": {
+    "type": "string",
+    "example": "SH0002"
+    },
+    "shipTo": {
+    "type": "string",
+    "example": "Warehouse 2"
+    },
+    "shipmentMode": {
+    "type": "string",
+    "example": "SEA"
+    },
+    "ShippedQty": {
+    "type": "string",
+    "example": "419"
+    },
+    "TotalValue": {
+    "type": "string",
+    "example": "59569"
+    },
+    "loadType": {
+    "type": "string",
+    "example": "LCL"
+    },
+    "forwarder": {
+    "type": "string",
+    "example": "MAERSK LOGISTICS"
+    },
+    "MBL/MAWB": {
+    "type": "string",
+    "example": "M0002"
+    },
+    "fromPort": {
+    "type": "string",
+    "example": "China - Hangzhou"
+    },
+    "toPort": {
+    "type": "string",
+    "example": "Netherlands - Amsterdam"
+    },
+    "vessel/flightName": {
+    "type": "string",
+    "example": "VT002"
+    },
+    "voyage/flight": {
+    "type": "string",
+    "example": "VT112"
+    },
+    "plannedETD": {
+    "type": "string",
+    "example": "22-May-20"
+    },
+    "ETD": {
+    "type": "string",
+    "example": " "
+    },
+    "ETA": {
+    "type": "string",
+    "example": " "
+    },
+    "shipmentStatus": {
+    "type": "string",
+    "example": "Confirmed"
+    },
+    "documentSentOn": {
+    "type": "string",
+    "example": ""
+    },
+    "chargeableWeight": {
+    "type": "string",
+    "example": "0.005 Kg"
+    },
+    "chargeableVolume": {
+    "type": "string",
+    "example": "0.0245 Cbm"
+    },
+    "arrivedOn": {
+    "type": "string",
+    "example": " "
+    },
+    "receiptedOn": {
+    "type": "string",
+    "example": " "
+    },
+    "comments": {
+    "type": "string",
+    "example": "Widget Adapter"
+    },
+    "createdByCompany": {
+    "type": "string",
+    "example": "NINE & Co B.V."
+    },
+    "createdByUser": {
+    "type": "string",
+    "example": "Ard Zonneveld"
+    },
+    "lastUpdatedByUser": {
+    "type": "string",
+    "example": "Ard Zonneveld"
+    },
+    "invoice": {
+    "type": "array",
+    "example": "invoiceRef:INV0003"
+    }
+    }
+    }
+    }
+   }
