@@ -35,24 +35,69 @@
     "application/json"
     ],
     "parameters": [
-    {
-    "name": "shipmentRef",
-    "in": "query",
-    "description": "pass an optional shipment Reference for searching",
-    "required": false,
-    "type": "string"
-    }
+      {
+         "name": "ShipmentRef",
+         "in": "query",
+         "description": "pass an optional shipment Reference for searching",
+         "required": true,
+         "type": "string"
+      },
+      {
+      "name": "ShipmentMode",
+      "in": "query",
+      "description": "select an optional mode of delivery for shipment",
+      "required": false,
+      "type": "array",
+      "items": {
+         "type":" string",
+         "enum":[
+            "SEA",
+            "AIR",
+            "LAND"]
+      }},
+      {
+         "name": "ShipmentStatus",
+         "in": "query",
+         "description": "select an optional status parameter of the shipment",
+         "required": false,
+         "type": "array",
+         "items": {
+            "type":" string",
+            "enum":[
+               "Confirmed",
+               "Not Confirmed"]
+         }},{
+      
+            "in": "header",
+           "name": "Authorization",
+           "example":"bearer dsyewofkcbds283y8fejef8rwhfeuvefwfve",
+           "required": false,
+           "type": "string",
+           "schema":{
+             "$ref": "#/definitions/ShipmentModel"
+            }
+       }
+         
     ],
     "responses": {
     "200": {
     "description": "search results matching criteria",
     "schema": {
-    "type": "object"
+              "$ref": "#/definitions/ShipmentModel"
     }
     },
     "400": {
-    "description": "bad input parameter"
-    }
+      "description": "bad input parameter"
+      },
+      "429":{
+      "description": "exceeded request limit.Please Try after a minute"
+      },
+      "401": {
+      "description": "Unauthorized User"
+      },
+      "403": {
+      "description": "User has been blocked"
+      }
     }
     }
     }
